@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero de Indicadores</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-radius: 20px;
+            --text-light: #ffffff;
+            --overlay-bg: rgba(0, 0, 0, 0.4);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Contenedor de Renglón */
+        .row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        /* Estilo de la Card */
+        .card {
+            position: relative;
+            height: 450px;
+            border-radius: var(--card-radius);
+            overflow: hidden;
+            text-decoration: none;
+            color: var(--text-light);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Imagen de Fondo */
+        .card-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        /* Contenido de texto con efecto blur */
+        .card-content {
+            position: relative;
+            z-index: 2;
+            padding: 25px;
+            background: var(--overlay-bg);
+            backdrop-filter: blur(0px); /* El toque clave */
+            -webkit-backdrop-filter: blur(0px);
+            height: 50%; /* Ajusta qué tanto sube el panel */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            margin: 0 0 10px 0;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        /* Botones simulados */
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            background: #fff;
+            color: #333;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="row">
+        <a href="https://jaires-riss-salud-ceiegh.share.connect.posit.cloud/" class="card">
+            <div class="card-bg" style="background-image: url('images/riss_salud.png')"></div>
+            <div class="card-content">
+                <h2>Visualizador de la accesibilidad y cobertura de la infraestructura de salud a nivel estatal</h2>
+                <p>Mapa web interactivo que permite identificar centros de salud más cercanos para las comunidades de Hidalgo a nivel AGEB y localidad rural</p>
+                <div class="btn-group">
+                    <div class="btn">Mapa Web</div>
+                </div>
+            </div>
+        </a>
+
+        <a href="https://jaires.shinyapps.io/Rutas_ZMP/" class="card">
+            <div class="card-bg" style="background-image: url('images/rutas_zmp_mapa.png')"></div>
+            <div class="card-content">
+                <h2>Plataforma de rutas de transporte convencional.</h2>
+                <p>Visualizador de rutas del transporte público en la zona metropolitana de pachuca, con cromática, origen-destino y ruta georreferenciada</p>
+                <div class="btn-group">
+                    <div class="btn">Mapa Web</div>
+                </div>
+            </div>
+        </a>
+
+        <a href="https://sigehgo-ceaa.share.connect.posit.cloud/" class="card">
+            <div class="card-bg" style="background-image: url('images/calidad_agua.png')"></div>
+            <div class="card-content">
+                <h2>Sistema de Indicadores de Calidad del Agua</h2>
+                <p>Visualizador del desempeño municipal para la medición de parámetros fisico-químicos en los pozos de agua</p>
+                <div class="btn-group">
+                    <div class="btn">Mapa Web</div>
+                </div>
+            </div>
+        </a>
+        <a href="https://sigeh.hidalgo.gob.mx/movilidad" class="card">
+            <div class="card-bg" style="background-image: url('images/siniestralidad_transporte_publico.png')"></div>
+            <div class="card-content">
+                <h2>Plataforma interactiva para el seguimiento de la siniestralidad del Transporte Público a nivel estatal</h2>
+                <p>Plataforma para uso interno de la secretaría de movilidad. Incluye datos de concesionarios, placas y conductores que han sido invlolucrados en accidentes vehiculares.</p>
+                <div class="btn-group">
+                    <div class="btn">Mapa Web</div>
+                </div>
+            </div>
+        </a>
+        <a href="https://sigeh.hidalgo.gob.mx/pags/accidentes_vehiculares/" class="card">
+            <div class="card-bg" style="background-image: url('images/siniestralidad_general.png')"></div>
+            <div class="card-content">
+                <h2>Plataforma interactiva para el seguimiento de la siniestralidad vehicular a nivel estatal</h2>
+                <p>Plataforma con datos abiertos de INEGI que muestra siniestros viales en el estado de Hidalgo a través de un mapa de calor.</p>
+                <div class="btn-group">
+                    <div class="btn">Mapa Web</div>
+                </div>
+            </div>
+        </a>
+        <a href="https://staging.dn36fmod3xrkr.amplifyapp.com/" class="card">
+            <div class="card-bg" style="background-image: url('images/movilidad_urbana_peatonal.png')"></div>
+            <div class="card-content">
+                <h2> La movilidad urbana peatonal para hacer realidad el derecho a la ciudad</h2>
+                <p>Muestra los principales sitios utilizados por los peatones en pachuca de soto, y evidencia de la infraestructura peatonal</p>
+
+            </div>
+        </a>
+        <a href="https://sigehgo.github.io/Productos_Publicos/Cobertura_Transporte_Comunidades_Indigenas/Sin%20rutas/Cobertura%20de%20transporte%20en%20localidades%20ind%C3%ADgenas.html" class="card">
+            <div class="card-bg" style="background-image: url('images/movilidad_urbana_peatonal.png')"></div>
+            <div class="card-content">
+                <h2>Estimación de la cobertura de transporte público en comunidades indigenas del Estado de Hidalgo</h2>
+                <p>Mapa web que permite identificar las comunidades indígenas que cuentan con transporte público a menos de 500 metros</p>
+                <div class="btn-group">
+                    <div class="btn">Mapa Web</div>
+                </div>
+            </div>
+        </a>
+        <a href="https://sigehgo.github.io/Productos_Publicos/Centro_Justicia_Mujeres/Centro_Justicia_Mujeres_CEIEGH/index.html" class="card">
+            <div class="card-bg" style="background-image: url('images/Centro_de_Justicia_para_Mujeres.png')"></div>
+            <div class="card-content">
+                <h2>Visualizador de tipo y modalidad de violencia contra las mujeres en las colonias de Pachuca de Soto</h2>
+                <p>Mapa web que muestra el porcentaje de mujeres en situación de violencia de genero usuarias del CJMH, de acuerdo con su colonia, modalidad de atención y tipo de violencia en el municipio de Pachuca de Soto, 2022-2023.</p>
+                <div class="btn-group">
+                    <div class="btn">Mapa Web</div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+</body>
+</html>
